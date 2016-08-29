@@ -45,9 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FadePumpkinIn.cs" />
+     <Compile Include="Assets\FadePumpkinIn2.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\StartButton.cs" />
-     <Compile Include="Assets\Scripts\SummonAPokemon.cs" />
+     <Compile Include="Assets\Scripts\SummonAPokemon_Enemy.cs" />
+     <Compile Include="Assets\Scripts\SummonAPokemon_Player.cs" />
+     <Compile Include="Assets\Scripts\Team.cs" />
      <Compile Include="Assets\Scripts\TeamSelector.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

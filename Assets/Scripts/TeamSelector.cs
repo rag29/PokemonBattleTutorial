@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class TeamSelector : MonoBehaviour {
 
@@ -25,6 +26,9 @@ public class TeamSelector : MonoBehaviour {
 
 	List<string> all_possible_pokemon;
 
+	float timer;
+
+	bool start_timer;
 	// Use this for initialization
 	void Start ()
 	{
@@ -50,12 +54,23 @@ public class TeamSelector : MonoBehaviour {
 		all_possible_pokemon.Add("hooh");
 		all_possible_pokemon.Add("dialga");
 
+		timer = 0f;
+
+		start_timer = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		if (start_timer) 
+		{
+			timer += Time.deltaTime;
+		}
 
+		if (timer > 2f) 
+		{
+			SceneManager.LoadScene ("Scene1");
+		}
 	}
 
 	void OnMouseEnter()
@@ -85,22 +100,22 @@ public class TeamSelector : MonoBehaviour {
 			switch(this.gameObject.tag)
 			{
 				case "pikachu_choice":
-					GameState.player_team.Add("pikachu");
+					Team.player_team.Add("pikachu");
 					break;
 				case "squirtle_choice":
-					GameState.player_team.Add("squirtle");
+					Team.player_team.Add("squirtle");
 					break;
 				case "charmeleon_choice":
-					GameState.player_team.Add("charmeleon");
+					Team.player_team.Add("charmeleon");
 					break;
 				case "ivysaur_choice":
-					GameState.player_team.Add("ivysaur");
+					Team.player_team.Add("ivysaur");
 					break;
 				case "hooh_choice":
-					GameState.player_team.Add("hooh");
+					Team.player_team.Add("hooh");
 					break;
 				case "dialga_choice":
-					GameState.player_team.Add("dialga");
+					Team.player_team.Add("dialga");
 					break;
 			}
 
@@ -113,22 +128,22 @@ public class TeamSelector : MonoBehaviour {
 			switch(this.gameObject.tag)
 			{
 			case "pikachu_choice":
-				GameState.player_team.Add("pikachu");
+				Team.player_team.Add("pikachu");
 				break;
 			case "squirtle_choice":
-				GameState.player_team.Add("squirtle");
+				Team.player_team.Add("squirtle");
 				break;
 			case "charmeleon_choice":
-				GameState.player_team.Add("charmeleon");
+				Team.player_team.Add("charmeleon");
 				break;
 			case "ivysaur_choice":
-				GameState.player_team.Add("ivysaur");
+				Team.player_team.Add("ivysaur");
 				break;
 			case "hooh_choice":
-				GameState.player_team.Add("hooh");
+				Team.player_team.Add("hooh");
 				break;
 			case "dialga_choice":
-				GameState.player_team.Add("dialga");
+				Team.player_team.Add("dialga");
 				break;
 			}
 
@@ -141,44 +156,46 @@ public class TeamSelector : MonoBehaviour {
 			switch(this.gameObject.tag)
 			{
 			case "pikachu_choice":
-				GameState.player_team.Add("pikachu");
+				Team.player_team.Add("pikachu");
 				break;
 			case "squirtle_choice":
-				GameState.player_team.Add("squirtle");
+				Team.player_team.Add("squirtle");
 				break;
 			case "charmeleon_choice":
-				GameState.player_team.Add("charmeleon");
+				Team.player_team.Add("charmeleon");
 				break;
 			case "ivysaur_choice":
-				GameState.player_team.Add("ivysaur");
+				Team.player_team.Add("ivysaur");
 				break;
 			case "hooh_choice":
-				GameState.player_team.Add("hooh");
+				Team.player_team.Add("hooh");
 				break;
 			case "dialga_choice":
-				GameState.player_team.Add("dialga");
+				Team.player_team.Add("dialga");
 				break;
 			}
 
-			foreach (string obj in GameState.player_team) 
+			foreach (string obj in Team.player_team) 
 			{
 				print ("player" + obj);
 			}
 
 			foreach (string str in all_possible_pokemon) 
 			{
-				if(!GameState.player_team.Contains(str))
+				if(!Team.player_team.Contains(str))
 				{
-					GameState.enemy_team.Add (str);
+					Team.enemy_team.Add (str);
 				}
 			}
 
-			foreach (string obj in GameState.enemy_team) 
+			foreach (string obj in Team.enemy_team) 
 			{
 				print ("enemy" + obj);
 			}
 
 			active = true;
+
+			start_timer = true;
 
 		} else {
 			
