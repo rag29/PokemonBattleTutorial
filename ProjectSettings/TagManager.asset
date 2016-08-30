@@ -10,6 +10,12 @@ TagManager:
   - ivysaur_choice
   - hooh_choice
   - dialga_choice
+  - pikachu
+  - squirtle
+  - charmeleon
+  - ivysaur
+  - dialga
+  - hooh
   layers:
   - Default
   - TransparentFX

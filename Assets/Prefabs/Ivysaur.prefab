@@ -180,7 +180,7 @@ GameObject:
   - 4: {fileID: 412300}
   m_Layer: 0
   m_Name: Ivysaur
-  m_TagString: Untagged
+  m_TagString: ivysaur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

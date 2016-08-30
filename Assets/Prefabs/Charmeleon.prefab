@@ -376,7 +376,7 @@ GameObject:
   - 4: {fileID: 498516}
   m_Layer: 0
   m_Name: Charmeleon
-  m_TagString: Untagged
+  m_TagString: charmeleon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,6 +15,7 @@ public class TurnBasedSystem : MonoBehaviour {
 	public GameObject right_camera;
 	public GameObject left_camera;
 	public GameObject overhead_camera;
+	public GameObject attack_camera;
 
 	public GameObject attack_canvas;
 	public GameObject battle_canvas;
@@ -119,6 +120,33 @@ public class TurnBasedSystem : MonoBehaviour {
 
 		attack_canvas.SetActive (true);
 
+		switch(ActivePokemonScript.activePokemon_Player)
+		{
+		case "pikachu":
+			attack1.text = "Thunder";
+			attack2.text = "Shockwave";
+			break;
+		case "squirtle":
+			attack1.text = "Water Gun";
+			attack2.text = "Bubble";
+			break;
+		case "charmeleon":
+			attack1.text = "Fire Blast";
+			attack2.text = "Flamethrower";
+			break;
+		case "ivysaur":
+			attack1.text = "Razor Leaf";
+			attack2.text = "Hyper Beam";
+			break;
+		case "dialga":
+			attack1.text = "Dragon Breath";
+			attack2.text = "Roar of Time";
+			break;
+		case "hooh":
+			attack1.text = "Sacred Fire";
+			attack2.text = "Sunny Day";
+			break;
+		}
 		//check for active pokemon and display attacks based on that
 	}
 		
@@ -144,7 +172,7 @@ public class TurnBasedSystem : MonoBehaviour {
 
 	void Player_AttackInProgress()
 	{
-		right_camera.SetActive (true);
+		attack_camera.SetActive (true);
 		left_camera.SetActive (false);
 		overhead_camera.SetActive (false);
 
@@ -172,6 +200,9 @@ public class TurnBasedSystem : MonoBehaviour {
 
 	void Enemy_AttackInProgress()
 	{
+		attack_camera.SetActive (true);
+		left_camera.SetActive (false);
+
 		enemy_damage = false;
 		enemy_attack_in_progress = true;
 		//play the enemy attack
