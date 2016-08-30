@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\FadePumpkinIn.cs" />
      <Compile Include="Assets\FadePumpkinIn2.cs" />
+     <Compile Include="Assets\Scripts\ActivePokemonScript.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\StartButton.cs" />
      <Compile Include="Assets\Scripts\SummonAPokemon_Enemy.cs" />
