@@ -16,6 +16,9 @@ public class SummonAPokemon_Player : MonoBehaviour {
 	public GameObject hooh_right;
 	public GameObject dialga_right;
 
+	bool hit;
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,6 +27,8 @@ public class SummonAPokemon_Player : MonoBehaviour {
 		particle_system_right.SetActive (false);
 
 		pokeball_right.SetActive (false);
+
+		hit = false;
 	}
 	
 	// Update is called once per frame
@@ -42,80 +47,106 @@ public class SummonAPokemon_Player : MonoBehaviour {
 
 		if (timer > 4.8f) 
 		{
-			if (!GameState.player_1_summoned) {
+			if (!GameState.player_1_summoned && !hit) {
+				print (1);
 				switch (Team.player_team [0]) {
 				case "pikachu":
 					pikachu_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "squirtle":
 					squirtle_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "charmeleon":
 					charmeleon_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "ivysaur":
 					ivysaur_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "hooh":
 					hooh_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "dialga":
 					dialga_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				}
 				pokeball_right.SetActive (false);
 				timer = 0f;
+				hit = true;
 				GameState.player_1_summoned = true;
 
-			} else if (!GameState.player_2_summoned) {
+			} else if (!GameState.player_2_summoned && !hit) {
+				print (2);
 				switch (Team.player_team [1]) {
 				case "pikachu":
 					pikachu_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "squirtle":
 					squirtle_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "charmeleon":
 					charmeleon_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "ivysaur":
 					ivysaur_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "hooh":
 					hooh_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "dialga":
 					dialga_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				}
 				pokeball_right.SetActive (false);
+				particle_system_right.SetActive (false);
 				timer = 0f;
+				hit = true;
 				GameState.player_2_summoned = true;
 
 
-			} else if (!GameState.player_3_summoned) {
+			} else if (!GameState.player_3_summoned && !hit) {
+				print (3);
 				switch (Team.player_team [2]) {
 				case "pikachu":
 					pikachu_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "squirtle":
 					squirtle_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "charmeleon":
 					charmeleon_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "ivysaur":
 					ivysaur_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "hooh":
 					hooh_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				case "dialga":
 					dialga_right.SetActive (true);
+					pokeball_right.SetActive (false);
 					break;
 				}
 				pokeball_right.SetActive (false);
+				particle_system_right.SetActive (false);
 				timer = 0f;
+				hit = true;
 				GameState.player_3_summoned = true;
 
 			} else {

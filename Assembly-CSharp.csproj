@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\SummonAPokemon_Player.cs" />
      <Compile Include="Assets\Scripts\Team.cs" />
      <Compile Include="Assets\Scripts\TeamSelector.cs" />
+     <Compile Include="Assets\Scripts\TurnBasedSystem.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\sky5X\README.txt" />

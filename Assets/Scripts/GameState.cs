@@ -18,9 +18,9 @@ public class GameState : MonoBehaviour {
 
 	float game_timer;
 
-	public Camera overhead_camera;
-	public Camera left_camera;
-	public Camera right_camera;
+	public GameObject overhead_camera;
+	public GameObject left_camera;
+	public GameObject right_camera;
 
 	public GameObject left_canvas;
 	public GameObject right_canvas;
@@ -34,6 +34,10 @@ public class GameState : MonoBehaviour {
 
 	bool start_enemy_stuff;
 	float enemy_timer;
+
+	bool player_pkmn_summon;
+
+	public GameObject turn_based_system;
 
 	// Use this for initialization
 	void Start () 
@@ -52,9 +56,9 @@ public class GameState : MonoBehaviour {
 
 		game_timer = 0f;
 
-		left_camera.enabled = false;
-		right_camera.enabled = false;
-		overhead_camera.enabled = true;
+		left_camera.SetActive(false);
+		right_camera.SetActive(false);
+		overhead_camera.SetActive(true);
 
 		switch_count = 0;
 
@@ -66,30 +70,42 @@ public class GameState : MonoBehaviour {
 		start_enemy_stuff = false;
 
 		enemy_timer = 0f;
+
+		player_pkmn_summon = false;
+
+		turn_based_system.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (first_active) {
-			game_timer += Time.deltaTime;
+		game_timer += Time.deltaTime;
 
-			if (game_timer < 5f) {
-				overhead_camera.enabled = true;
-			} 
-			else if (game_timer > 10f) {
-				EnableLeftCamera ();
-				first_active = false;
-			}
-			else if (game_timer > 5f) {
-				EnableRightCamera ();
-				overhead_camera.enabled = false;
-//				start_enemy_stuff = true;
-
-			}
-
-
+		if (game_timer > 20f) {
+			//activate the state machine
+			turn_based_system.SetActive(true);
 		}
+		if (game_timer > 17f) {
+			left_pokeball.SetActive (false);
+		}
+		else if (game_timer > 12f) 
+		{
+			EnableLeftCamera ();
+			DisableRightCamera ();
+			left_pokeball.SetActive (true);
+		}
+		else if (game_timer > 10f) 
+		{
+			right_pokeball.SetActive (false);
+		}
+		else if (game_timer > 5f) 
+		{
+			EnableRightCamera ();
+			overhead_camera.SetActive (false);
+			right_pokeball.SetActive (true);
+		}
+			
+	}
 
 //		if (start_enemy_stuff) 
 //		{
@@ -99,16 +115,16 @@ public class GameState : MonoBehaviour {
 //				EnableLeftCamera ();
 //			}
 //		}
-	}
+
 
 	void EnableLeftCamera()
 	{
-		left_camera.enabled = true;
-		overhead_camera.enabled = false;
-		right_camera.enabled = false;
+		
+		left_camera.SetActive(true);
 
 		if (switch_count == 0) {
 			left_pokeball.SetActive (true);
+
 		} else if (switch_count >= 1) {
 			left_canvas.SetActive (true);
 		}
@@ -118,15 +134,26 @@ public class GameState : MonoBehaviour {
 
 	void EnableRightCamera()
 	{
-		right_camera.enabled = true;
-		overhead_camera.enabled = false;
-		left_camera.enabled = false;
+
+		right_camera.SetActive(true);
 
 		if (switch_count == 0) 
 		{
-			right_pokeball.SetActive (true);
+			
 		}else if (switch_count >= 1) {
 			right_canvas.SetActive (true);
 		}
 	}
+
+	void DisableRightCamera()
+	{
+		right_camera.SetActive(false);
+	}
+
+	void DisableLeftCamera()
+	{
+		left_camera.SetActive(false);
+	}
+
+
 }
