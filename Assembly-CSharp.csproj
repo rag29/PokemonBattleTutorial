@@ -47,6 +47,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ActivePokemonScript.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
+     <Compile Include="Assets\Scripts\HealthBar_Charmeleon.cs" />
+     <Compile Include="Assets\Scripts\HealthBar_Dialga.cs" />
+     <Compile Include="Assets\Scripts\HealthBar_Hooh.cs" />
+     <Compile Include="Assets\Scripts\HealthBar_Ivysaur.cs" />
+     <Compile Include="Assets\Scripts\HealthBar_Pikachu.cs" />
+     <Compile Include="Assets\Scripts\HealthBar_Squirtle.cs" />
      <Compile Include="Assets\Scripts\StartButton.cs" />
      <Compile Include="Assets\Scripts\SummonAPokemon_Enemy.cs" />
      <Compile Include="Assets\Scripts\SummonAPokemon_Player.cs" />

@@ -29,6 +29,8 @@ public class TeamSelector : MonoBehaviour {
 	float timer;
 
 	bool start_timer;
+	bool stop_showing;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -57,6 +59,7 @@ public class TeamSelector : MonoBehaviour {
 		timer = 0f;
 
 		start_timer = false;
+		stop_showing = false;
 	}
 	
 	// Update is called once per frame
@@ -75,7 +78,7 @@ public class TeamSelector : MonoBehaviour {
 
 	void OnMouseEnter()
 	{
-		if (!active)
+		if (!active && !stop_showing)
 		{
 			this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
@@ -84,7 +87,7 @@ public class TeamSelector : MonoBehaviour {
 
 	void OnMouseExit()
 	{
-		if (!active) 
+		if (!active && !stop_showing) 
 		{
 			this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 		}
@@ -152,7 +155,7 @@ public class TeamSelector : MonoBehaviour {
 		} else if (!GameState.three_set && !active) {
 			three.GetComponent<SpriteRenderer> ().enabled = true;
 			GameState.three_set = true;
-
+			stop_showing = true;
 			switch(this.gameObject.tag)
 			{
 			case "pikachu_choice":
